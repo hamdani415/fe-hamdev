@@ -118,7 +118,7 @@ export default function Aurora() {
                         DKI Jakarta
                         "
             />
-            <RSVP invitationId={3}/>
+            <RSVP invitationId={8}/>
             <Footer />
 
         </>
