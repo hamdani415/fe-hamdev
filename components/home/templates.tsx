@@ -5,22 +5,22 @@ import TemplateCard from "../template/templateCard";
 const templates = [
   {
     title: "Aurora",
-    image: "/image/templates/aurora.webp",
+    image: "/image/srinity/aurora.webp",
     demo: "/demo/aurora?to=yogi",
   },
   {
     title: "Sakura",
-    image: "/image/templates/sakura.webp",
+    image: "/image/srinity/sakura.webp",
     demo: "/demo/sakura?to=yogi",
   },
   {
     title: "Noir",
-    image: "/image/templates/noir.webp",
+    image: "/image/srinity/noir.webp",
     demo: "/demo/noir?to=yogi",
   },
   {
     title: "Ocean",
-    image: "/image/templates/ocean.webp",
+    image: "/image/srinity/ocean.webp",
     demo: "/demo/ocean?to=yogi",
   },
 ];
