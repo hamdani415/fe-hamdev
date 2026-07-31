@@ -20,7 +20,11 @@ const templates = [
 
     {
         id:3,
-        name:"Minimal"
+        name:"ocean"
+    },
+    {
+        id:4,
+        name:"noir"
     }
 
 ];
