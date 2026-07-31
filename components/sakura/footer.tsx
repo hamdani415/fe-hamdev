@@ -65,7 +65,7 @@ export default function Footer({
 
                 <div className="mt-8 flex justify-center gap-5">
                     <Link
-                        href="https://instagram.com/hamdev"
+                        href="https://instagram.com/hamdev.id"
                         target="_blank"
                         className="flex h-12 w-12 items-center justify-center rounded-full border border-pink-200 transition hover:bg-pink-100"
                     >

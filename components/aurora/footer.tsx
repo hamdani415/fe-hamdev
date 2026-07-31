@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="mt-8 flex justify-center gap-4">
 
               <Link
-                href="https://instagram.com/hamdev"
+                href="https://instagram.com/hamdev.id"
                 target="_blank"
                 className="rounded-full bg-white/10 p-3 transition hover:bg-white/20"
               >

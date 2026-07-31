@@ -163,7 +163,7 @@ export default function Footer({
 
 
                     <Link
-                        href="https://instagram.com/hamdev"
+                        href="https://instagram.com/hamdev.id"
                         target="_blank"
                         className="
                         flex 

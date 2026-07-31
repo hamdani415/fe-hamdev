@@ -73,23 +73,23 @@ export default function Footer() {
                     <div className="space-y-5 text-zinc-600">
 
                         <a
-                           href="https://wa.me/6287815905612"
+                            href="https://wa.me/6287815905612"
                             className="flex items-center gap-3 hover:text-[#D89300]"
                         >
                             <MessageCircle size={18} />
                             WhatsApp
                         </a>
 
-                        <a
+                        {/* <a
                             href="mailto:admin@hamdev.id"
                             className="flex items-center gap-3 hover:text-[#D89300]"
                         >
                             <Mail size={18} />
                             admin@hamdev.id
-                        </a>
+                        </a> */}
 
                         <a
-                            href="#"
+                            href="https://instagram.com/hamdev.id"
                             className="flex items-center gap-3 hover:text-[#D89300]"
                         >
                             <FaInstagram size={18} />
