@@ -109,7 +109,7 @@ export default function Ocean() {
             "/image/srinity/srinity3.webp",
             "/image/srinity/srinity4.webp",
             "/image/srinity/srinity5.webp",
-            "/image/srinity/srinity6.webp",
+           
 
         ],
 

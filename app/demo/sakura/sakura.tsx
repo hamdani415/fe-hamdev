@@ -69,8 +69,7 @@ export default function Sakura() {
                             "/image/srinity/srinity4.webp",
                             "/image/srinity/srinity5.webp",
                             "/image/srinity/srinity6.webp",
-                            "/image/srinity/srinity8.webp",
-                            "/image/srinity/srinity9.webp",
+                           
                         ]}
                     />
                     <LoveStory
