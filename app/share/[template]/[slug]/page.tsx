@@ -21,25 +21,26 @@ export default function SharePage() {
     )}`;
   }, [baseUrl, template, slug, guest]);
 
-  const message = useMemo(() => {
-    return `Assalamu'alaikum Wr. Wb.
+ const message = useMemo(() => {
+  return `🌸 *Assalamu'alaikum Warahmatullahi Wabarakatuh* 🌸
 
-Dengan memohon rahmat dan ridho Allah SWT.
+Yth.
+*${guest || "Bapak/Ibu/Saudara/i"}*
 
-Tanpa mengurangi rasa hormat, kami mengundang *${
-      guest || "Bapak/Ibu/Saudara/i"
-    }* untuk menghadiri acara pernikahan kami.
+Semoga Allah SWT senantiasa melimpahkan kesehatan, kebahagiaan, serta keberkahan kepada Bapak/Ibu/Saudara/i beserta keluarga.
 
-Silakan buka undangan melalui tautan berikut:
+Dengan penuh rasa syukur kepada Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.
+
+✨ Kehadiran serta doa restu dari Bapak/Ibu/Saudara/i akan menjadi kebahagiaan dan kehormatan yang sangat berarti bagi kami.
+
+Silakan membuka undangan melalui tautan berikut:
 
 ${invitationLink}
 
-Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila berkenan hadir serta memberikan doa restu.
+Atas perhatian, kehadiran, serta doa restunya kami ucapkan terima kasih.
 
-Terima kasih.
-
-Wassalamu'alaikum Wr. Wb.`;
-  }, [guest, invitationLink]);
+🤲 Wassalamu'alaikum Warahmatullahi Wabarakatuh.`;
+}, [guest, invitationLink]);
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(
