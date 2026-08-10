@@ -68,7 +68,7 @@ export default function TemplateCard({
 
           <Button
             variant="outline"
-            href="https://wa.me/628123456789"
+            href="https://wa.me/627815905612"
           >
             Pesan
           </Button>
