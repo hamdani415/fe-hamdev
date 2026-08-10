@@ -68,7 +68,7 @@ export default function TemplateCard({
 
           <Button
             variant="outline"
-            href="https://wa.me/627815905612"
+            href="https://wa.me/627815905612?text=Halo%20kak,%20saya%20mau%20pesan%20undangan%20digital%20di%20Hamdev.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
           >
             Pesan
           </Button>
