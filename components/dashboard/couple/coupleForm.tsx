@@ -15,6 +15,7 @@ interface Props {
 interface FormState {
 
     groomName: string;
+    namaPendekCowo: string;
     groomFather: string;
     groomMother: string;
     groomPhoto: string | null;
@@ -23,6 +24,7 @@ interface FormState {
 
 
     brideName: string;
+    namaPendekCewe: string;
     brideFather: string;
     brideMother: string;
     bridePhoto: string | null;
@@ -49,68 +51,71 @@ export default function CoupleForm({
 
 
 
-    const [form,setForm] = useState<FormState>({
+    const [form, setForm] = useState<FormState>({
 
-        groomName:"",
-        groomFather:"",
-        groomMother:"",
-        groomPhoto:null,
-        groomInstagram:"",
-        groomFile:null,
+        groomName: "",
+        namaPendekCowo: "",
+        groomFather: "",
+        groomMother: "",
+        groomPhoto: null,
+        groomInstagram: "",
+        groomFile: null,
 
 
-        brideName:"",
-        brideFather:"",
-        brideMother:"",
-        bridePhoto:null,
-        brideInstagram:"",
-        brideFile:null,
+        brideName: "",
+        namaPendekCewe: "",
+        brideFather: "",
+        brideMother: "",
+        bridePhoto: null,
+        brideInstagram: "",
+        brideFile: null,
 
     });
 
 
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        if(couple){
+        if (couple) {
 
             setForm({
 
                 groomName: couple.groomName,
+                namaPendekCowo: couple.namaPendekCowo ?? "",
                 groomFather: couple.groomFather,
                 groomMother: couple.groomMother,
                 groomPhoto: couple.groomPhoto,
                 groomInstagram: couple.groomInstagram ?? "",
-                groomFile:null,
+                groomFile: null,
 
 
                 brideName: couple.brideName,
+                namaPendekCewe: couple.namaPendekCewe ?? "",
                 brideFather: couple.brideFather,
                 brideMother: couple.brideMother,
                 bridePhoto: couple.bridePhoto,
                 brideInstagram: couple.brideInstagram ?? "",
-                brideFile:null,
+                brideFile: null,
 
             });
 
         }
 
-    },[couple]);
-
+    }, [couple]);
 
 
 
     const handleChange = (
-        e:React.ChangeEvent<HTMLInputElement>
-    )=>{
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
 
 
-        setForm(prev=>({
+        setForm(prev => ({
 
             ...prev,
 
             [e.target.name]:
-            e.target.value
+                e.target.value
 
         }));
 
@@ -122,31 +127,31 @@ export default function CoupleForm({
 
     const handleFile = (
 
-        e:React.ChangeEvent<HTMLInputElement>,
+        e: React.ChangeEvent<HTMLInputElement>,
 
-        type:"groom"|"bride"
+        type: "groom" | "bride"
 
-    )=>{
+    ) => {
 
 
         const file =
             e.target.files?.[0];
 
 
-        if(!file) return;
+        if (!file) return;
 
 
 
-        setForm(prev=>({
+        setForm(prev => ({
 
             ...prev,
 
 
-            [`${type}File`]:file,
+            [`${type}File`]: file,
 
 
             [`${type}Photo`]:
-            URL.createObjectURL(file)
+                URL.createObjectURL(file)
 
 
         }));
@@ -157,24 +162,40 @@ export default function CoupleForm({
 
 
 
-    const submit = async()=>{
+    const submit = async () => {
 
+        try {
 
-        await saveCouple(form);
+            console.log("DATA YANG DIKIRIM:", form);
 
+            await saveCouple(form);
 
-        alert(
-            "Data mempelai berhasil disimpan"
-        );
+            alert("Data mempelai berhasil disimpan");
 
+        } catch (error: any) {
+
+            console.log(
+                "ERROR BACKEND:",
+                error.response?.data
+            );
+
+            console.log(
+                "STATUS:",
+                error.response?.status
+            );
+
+            alert(
+                JSON.stringify(error.response?.data)
+            );
+
+        }
 
     };
 
 
 
 
-
-    if(loading){
+    if (loading) {
 
         return (
 
@@ -242,7 +263,7 @@ export default function CoupleForm({
 
                         preview={form.groomPhoto}
 
-                        onChange={(e)=>
+                        onChange={(e) =>
                             handleFile(
                                 e,
                                 "groom"
@@ -257,6 +278,13 @@ export default function CoupleForm({
                         label="Nama"
                         name="groomName"
                         value={form.groomName}
+                        onChange={handleChange}
+                    />
+
+                    <Input
+                        label="Nama Panggilan"
+                        name="namaPendekCowo"
+                        value={form.namaPendekCowo}
                         onChange={handleChange}
                     />
 
@@ -313,7 +341,7 @@ export default function CoupleForm({
 
                         preview={form.bridePhoto}
 
-                        onChange={(e)=>
+                        onChange={(e) =>
                             handleFile(
                                 e,
                                 "bride"
@@ -328,6 +356,13 @@ export default function CoupleForm({
                         label="Nama"
                         name="brideName"
                         value={form.brideName}
+                        onChange={handleChange}
+                    />
+
+                    <Input
+                        label="Nama Panggilan"
+                        name="namaPendekCewe"
+                        value={form.namaPendekCewe}
                         onChange={handleChange}
                     />
 
@@ -379,7 +414,7 @@ export default function CoupleForm({
 
             >
 
-                <Save size={18}/>
+                <Save size={18} />
 
                 Simpan
 
@@ -401,11 +436,11 @@ export default function CoupleForm({
 
 interface InputProps {
 
-    label:string;
-    name:string;
-    value:string;
+    label: string;
+    name: string;
+    value: string;
     onChange:
-    (e:React.ChangeEvent<HTMLInputElement>)=>void;
+    (e: React.ChangeEvent<HTMLInputElement>) => void;
 
 }
 
@@ -416,7 +451,7 @@ function Input({
     label,
     ...props
 
-}:InputProps){
+}: InputProps) {
 
 
     return (
@@ -461,10 +496,10 @@ function Input({
 
 interface PhotoUploadProps {
 
-    preview:string | null;
+    preview: string | null;
 
     onChange:
-    (e:React.ChangeEvent<HTMLInputElement>)=>void;
+    (e: React.ChangeEvent<HTMLInputElement>) => void;
 
 }
 
@@ -476,7 +511,7 @@ function PhotoUpload({
 
     onChange
 
-}:PhotoUploadProps){
+}: PhotoUploadProps) {
 
 
     return (
@@ -502,29 +537,29 @@ function PhotoUpload({
                 {
                     preview ?
 
-                    <Image
+                        <Image
 
-                        src={preview}
+                            src={preview}
 
-                        width={400}
+                            width={400}
 
-                        height={400}
+                            height={400}
 
-                        alt="photo"
+                            alt="photo"
 
-                        className="
+                            className="
                         w-full
                         h-full
                         object-cover
                         "
 
-                    />
+                        />
 
 
-                    :
+                        :
 
 
-                    <div className="
+                        <div className="
                         text-gray-400
                         flex
                         flex-col
@@ -532,11 +567,11 @@ function PhotoUpload({
                         gap-2
                     ">
 
-                        <Upload/>
+                            <Upload />
 
-                        Upload Foto
+                            Upload Foto
 
-                    </div>
+                        </div>
 
                 }
 

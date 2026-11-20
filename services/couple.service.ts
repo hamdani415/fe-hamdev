@@ -3,22 +3,24 @@ import axiosInstance from "@/libs/axios";
 
 export interface Couple {
 
-    id:number;
+    id: number;
 
-    invitationId:number;
+    invitationId: number;
 
-    groomName:string;
-    groomFather:string;
-    groomMother:string;
-    groomPhoto:string | null;
-    groomInstagram:string | null;
+    groomName: string;
+    groomFather: string;
+    groomMother: string;
+    groomPhoto: string | null;
+    groomInstagram: string | null;
+    namaPendekCowo: string | null;
+    namaPendekCewe: string | null;
 
 
-    brideName:string;
-    brideFather:string;
-    brideMother:string;
-    bridePhoto:string | null;
-    brideInstagram:string | null;
+    brideName: string;
+    brideFather: string;
+    brideMother: string;
+    bridePhoto: string | null;
+    brideInstagram: string | null;
 
 }
 
@@ -26,17 +28,17 @@ export interface Couple {
 
 interface CoupleResponse {
 
-    data:Couple | null;
+    data: Couple | null;
 
 }
 
 
 
-export const getCouple = async(
-    invitationId:number
-)=>{
+export const getCouple = async (
+    invitationId: number
+) => {
 
-    const {data} =
+    const { data } =
         await axiosInstance.get<CoupleResponse>(
             `/couple/${invitationId}`
         );
@@ -48,16 +50,16 @@ export const getCouple = async(
 
 
 
-export const createCouple = async(
+export const createCouple = async (
 
-    invitationId:number,
+    invitationId: number,
 
-    body:Omit<Couple,"id"|"invitationId">
+    body: Omit<Couple, "id" | "invitationId">
 
-)=>{
+) => {
 
 
-    const {data} =
+    const { data } =
         await axiosInstance.post(
 
             `/couple/${invitationId}`,
@@ -73,16 +75,16 @@ export const createCouple = async(
 
 
 
-export const updateCouple = async(
+export const updateCouple = async (
 
-    invitationId:number,
+    invitationId: number,
 
-    body:Partial<Couple>
+    body: Partial<Couple>
 
-)=>{
+) => {
 
 
-    const {data} =
+    const { data } =
         await axiosInstance.put(
 
             `/couple/${invitationId}`,

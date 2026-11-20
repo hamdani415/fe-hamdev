@@ -13,12 +13,14 @@ export interface PublicInvitation {
 
     couple: {
         groomName: string;
+        namaPendekCowo: string | null;
         groomFather: string;
         groomMother: string;
         groomPhoto: string;
         groomInstagram: string;
 
         brideName: string;
+        namaPendekCewe: string | null;
         brideFather: string;
         brideMother: string;
         bridePhoto: string;

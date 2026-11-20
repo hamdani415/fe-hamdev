@@ -56,11 +56,14 @@ export default function Page() {
             <Opening
 
                 bride={
-                    invitation.couple?.brideName ?? ""
+                    invitation.couple?.namaPendekCewe ||
+                    invitation.couple?.brideName ||
+                    ""
                 }
-
                 groom={
-                    invitation.couple?.groomName ?? ""
+                    invitation.couple?.namaPendekCowo ||
+                    invitation.couple?.groomName ||
+                    ""
                 }
 
                 guest={guestName}

@@ -41,8 +41,16 @@ export default function Page() {
     return (
         <>
             <Opening
-                groom={invitation.couple?.groomName ?? ""}
-                bride={invitation.couple?.brideName ?? ""}
+                bride={
+                    invitation.couple?.namaPendekCewe ||
+                    invitation.couple?.brideName ||
+                    ""
+                }
+                groom={
+                    invitation.couple?.namaPendekCowo ||
+                    invitation.couple?.groomName ||
+                    ""
+                }
                 guest={guestName}
                 cover={invitation.coverImage}
                 date={invitation.event?.akadDate ?? ""}

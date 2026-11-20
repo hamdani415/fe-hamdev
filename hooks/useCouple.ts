@@ -1,7 +1,7 @@
 "use client";
 
 
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
     Couple,
@@ -18,30 +18,30 @@ import {
 
 export const useCouple = (
 
-    invitationId:number
+    invitationId: number
 
-)=>{
-
-
-    const [couple,setCouple]
-    = useState<Couple | null>(null);
+) => {
 
 
-
-    const [loading,setLoading]
-    = useState(true);
+    const [couple, setCouple]
+        = useState<Couple | null>(null);
 
 
 
-    useEffect(()=>{
+    const [loading, setLoading]
+        = useState(true);
+
+
+
+    useEffect(() => {
 
         fetchCouple();
 
-    },[]);
+    }, []);
 
 
 
-    const fetchCouple = async()=>{
+    const fetchCouple = async () => {
 
 
         const data =
@@ -60,11 +60,11 @@ export const useCouple = (
 
 
 
-    const saveCouple = async(
+    const saveCouple = async (
 
-        form:any
+        form: any
 
-    )=>{
+    ) => {
 
 
         let groomPhoto =
@@ -76,7 +76,7 @@ export const useCouple = (
 
 
 
-        if(form.groomFile){
+        if (form.groomFile) {
 
             const upload =
                 await uploadImage(
@@ -95,7 +95,7 @@ export const useCouple = (
 
 
 
-        if(form.brideFile){
+        if (form.brideFile) {
 
             const upload =
                 await uploadImage(
@@ -114,68 +114,52 @@ export const useCouple = (
 
 
 
-        const body={
+        const body = {
 
-            groomName:
-            form.groomName,
-
-            groomFather:
-            form.groomFather,
-
-            groomMother:
-            form.groomMother,
-
+            groomName: form.groomName,
+            namaPendekCowo: form.namaPendekCowo,
+            groomFather: form.groomFather,
+            groomMother: form.groomMother,
             groomPhoto,
-
-            groomInstagram:
-            form.groomInstagram,
+            groomInstagram: form.groomInstagram,
 
 
-
-            brideName:
-            form.brideName,
-
-            brideFather:
-            form.brideFather,
-
-            brideMother:
-            form.brideMother,
-
+            brideName: form.brideName,
+            namaPendekCewe: form.namaPendekCewe,
+            brideFather: form.brideFather,
+            brideMother: form.brideMother,
             bridePhoto,
-
-            brideInstagram:
-            form.brideInstagram,
+            brideInstagram: form.brideInstagram,
 
         };
-
 
 
         let result;
 
 
-        if(couple){
+        if (couple) {
 
             result =
-            await updateCouple(
+                await updateCouple(
 
-                invitationId,
+                    invitationId,
 
-                body
+                    body
 
-            );
+                );
 
 
-        }else{
+        } else {
 
 
             result =
-            await createCouple(
+                await createCouple(
 
-                invitationId,
+                    invitationId,
 
-                body
+                    body
 
-            );
+                );
 
         }
 
